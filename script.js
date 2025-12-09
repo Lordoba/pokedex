@@ -44,6 +44,9 @@ for (const pokemon of pokemons) {
     card.appendChild(title);
     card.appendChild(image);
     card.appendChild(type);
+    card.addEventListener("click", function(){
+        console.log("Das Pokemon "+ pokemon.name + "wudre geklickt");
+    });
 
     Pokémonabschnitt.appendChild(card);
 
