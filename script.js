@@ -35,21 +35,7 @@ Pokémonabschnitt.classList.add("container");
 document.body.appendChild(Pokémonabschnitt);
 
 for (const pokemon of pokemons) {
-    const card = document.createElement("div");
-    card.classList.add("card");
-
-    const title = document.createElement("h2");
-    title.textContent = pokemon.name;
-
-    const image = document.createElement("img");
-    image.src = pokemon.image;
-    
-    const type = document.createElement("p");
-    type.textContent = "Typ: "+ pokemon.type;
-
-    card.appendChild(title);
-    card.appendChild(image);
-    card.appendChild(type);
+    const card = createPokemonCard(pokemon);
     card.addEventListener("click", function(){
         displaySinglePokemon(pokemon);
     });
@@ -64,5 +50,30 @@ function displaySinglePokemon(pokemon){
         console.log("Das Pokemon "+ pokemon.name + "wudre geklickt");
         Pokémonabschnitt.classList.toggle("d-none");
         DetailView.classList.toggle("d-none");
+
+        const card = createPokemonCard(pokemon);
+        DetailView.appendChild(card);
+        
+
+}
+function createPokemonCard(pokemon){
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const title = document.createElement("h2");
+    title.textContent = pokemon.name;
+
+    const image = document.createElement("img");
+    image.src = pokemon.image;
+    image.alt = pokemon.name;
+
+    const type = document.createElement("p");
+    type.textContent = "Typ: " + pokemon.type;
+
+    card.appendChild(title);
+    card.appendChild(image);
+    card.appendChild(type);
+    return card
+
 }
 //Event-Listeners
