@@ -13,6 +13,12 @@ const pokemons = [
     { name: "Kokowei", type: "Pflanze", image: `${pokemonBilderQuelle}103.png`},
 ];
 //HTML-Elemente
+let DetailView = document.createElement("div");
+DetailView.id = "pokemondetailview";
+DetailView.classList.add("container");
+DetailView.classList.add("d-none")
+document.body.appendChild(DetailView)
+
 let Titelsection = document.createElement("div");
 Titelsection.id = "title-section";
 Titelsection.classList.add("container");
@@ -45,7 +51,7 @@ for (const pokemon of pokemons) {
     card.appendChild(image);
     card.appendChild(type);
     card.addEventListener("click", function(){
-        console.log("Das Pokemon "+ pokemon.name + "wudre geklickt");
+        displaySinglePokemon(pokemon);
     });
 
     Pokémonabschnitt.appendChild(card);
@@ -54,5 +60,9 @@ for (const pokemon of pokemons) {
 }
 
 //Funktionen
-
+function displaySinglePokemon(pokemon){
+        console.log("Das Pokemon "+ pokemon.name + "wudre geklickt");
+        Pokémonabschnitt.classList.toggle("d-none");
+        DetailView.classList.toggle("d-none");
+}
 //Event-Listeners

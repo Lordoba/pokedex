@@ -49,3 +49,6 @@ element.style {
 .card img{
     width: 100%;
 }
+.d-none{
+    display: none;
+}
